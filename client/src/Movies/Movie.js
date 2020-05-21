@@ -22,7 +22,7 @@ function Movie({ addToSavedList, setMovieList }) {
   const deleteMovie = e => {
     e.preventDefault();
     axios
-      .delete(`http://localhost:5000/api/movies/${movie.id}`)
+      .delete(`http://localhost:5000/api/movies/${params.id}`)
       .then(res => {
         console.log(res);
         // setMovieList(res.data);
