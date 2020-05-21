@@ -14,6 +14,7 @@ const UpdateMovieForm = ({ movieList, setMovieList }) => {
     const { push } = useHistory();
     const [movie, setMovie] = useState(initalMovie);
     const { id } = useParams();
+    let updatedStars = [...movie.stars];
 
     useEffect(() => {
         axios
@@ -28,7 +29,11 @@ const UpdateMovieForm = ({ movieList, setMovieList }) => {
     const onInputChange = e => {
         e.persist();
         const name = e.target.name;
-        const value = e.target.value;
+        let value = e.target.value;
+
+        if (name === 'stars'){
+            value = value.split(',');
+        }
 
         setMovie({
             ...movie,
@@ -43,12 +48,6 @@ const UpdateMovieForm = ({ movieList, setMovieList }) => {
             .put(`http://localhost:5000/api/movies/${id}`, movie)
             .then(res => {
                 console.log(res);
-
-                // movieList.map(movie => {
-                //     if (movie.id === id) {
-                //         set
-                //     }
-                // })
                 setMovieList([...movieList, res.data]);
                 push('/');
             })
