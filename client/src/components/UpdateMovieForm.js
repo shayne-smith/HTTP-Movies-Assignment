@@ -40,7 +40,10 @@ const UpdateMovieForm = props => {
 
         axios
             .put(`http://localhost:5000/api/movies/${id}`, movie)
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res);
+                setMovie()
+            })
             .catch(err => console.log(err))
 
         // const updatedMovie = {
@@ -54,6 +57,10 @@ const UpdateMovieForm = props => {
         // this.setState({
         //     formValues: initalFormValues
         // })
+    };
+
+    const deleteStar = () => {
+
     };
 
     return (
@@ -93,7 +100,7 @@ const UpdateMovieForm = props => {
                     value={movie.stars}
                     onChange={onInputChange}
                     name='stars'
-                    type='number'
+                    type='text'
                 >
                 </input>
             </label>

@@ -48,15 +48,17 @@ body {
   border: 1px solid grey;
   padding: 5px;
 }
-.save-wrapper {
+.movie-wrapper {
   position: relative;
   width: 75%;
   margin: 1rem auto;
+  /* display: flex; */
 }
 .save-button {
   position: absolute;
   top: 25px;
   right: 25px;
+  /* height: 2rem; */
   border: 1px solid grey;
   padding: 5px 10px;
   background-color: lightseagreen;
@@ -76,6 +78,20 @@ body {
   cursor: pointer;
 }
 .edit-button:hover {
+  background-color: green;
+  color: white;
+}
+.delete-button {
+  position: absolute;
+  top: 125px;
+  right: 25px;
+  /* height: 2rem; */
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: lightseagreen;
+  cursor: pointer;
+}
+.delete-button:hover {
   background-color: green;
   color: white;
 }
