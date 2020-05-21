@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
-import MovieList from '../Movies/MovieList';
 
 const initalMovie = {
     title: '',
@@ -14,7 +13,6 @@ const UpdateMovieForm = ({ movieList, setMovieList }) => {
     const { push } = useHistory();
     const [movie, setMovie] = useState(initalMovie);
     const { id } = useParams();
-    let updatedStars = [...movie.stars];
 
     useEffect(() => {
         axios
