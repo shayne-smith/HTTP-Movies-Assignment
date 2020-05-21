@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
+import MovieList from '../Movies/MovieList';
 
 const initalMovie = {
     title: '',
@@ -9,7 +10,7 @@ const initalMovie = {
     stars: []
 }
 
-const UpdateMovieForm = props => {
+const UpdateMovieForm = ({ movieList, setMovieList }) => {
     const { push } = useHistory();
     const [movie, setMovie] = useState(initalMovie);
     const { id } = useParams();
@@ -42,7 +43,14 @@ const UpdateMovieForm = props => {
             .put(`http://localhost:5000/api/movies/${id}`, movie)
             .then(res => {
                 console.log(res);
-                setMovie()
+
+                // movieList.map(movie => {
+                //     if (movie.id === id) {
+                //         set
+                //     }
+                // })
+                setMovieList([...movieList, res.data]);
+                push('/');
             })
             .catch(err => console.log(err))
 
@@ -57,10 +65,6 @@ const UpdateMovieForm = props => {
         // this.setState({
         //     formValues: initalFormValues
         // })
-    };
-
-    const deleteStar = () => {
-
     };
 
     return (
